@@ -1,0 +1,20 @@
+return {
+    id: "auto-js",
+    name: "Auto JS",
+    description: "Automatically, by default, enable JavaScript extensions.",
+    version: "1.0",
+    author: "codingisfun2831",
+    depends: [],
+    doMenu: false,
+
+    main(api) {
+        this.startingValue = Process.prototype.enableJS;
+        Process.prototype.enableJS = true;
+    },
+
+    cleanupFuncs: [
+        () => {
+            Process.prototype.enableJS = this.startingValue;
+        }
+    ],
+}
